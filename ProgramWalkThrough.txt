@@ -1,0 +1,5 @@
+birthday reminder program that sends email reminding about birthday 
+taking in name and date and saves in file 
+program will check system date on execute 
+when program is idle it will check the system date every hour to see if the date has changed 
+if the date has changed then check list of birthday to match and send notification 
