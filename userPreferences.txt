@@ -1,0 +1,3 @@
+Email:kevinhao20419@gmail.com
+ReminderDay:2
+notificationStatus:0
