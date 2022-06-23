@@ -4,14 +4,7 @@ from fetchDates import *
 from notificationStatus import *
 from sendEmailPrep import *
 
-
-def sendEmail():
-    notificationState = getNotificationState()
-    Email = getEmail()
-    today = getSystemDate()
-    birthdayPeopleList = []
-    birthdayPeopleList = getBirthdayPeople()
-    
+def checkBirthday(Email,birthdayPeopleList,notificationState):
     if(len(birthdayPeopleList)>0 and notificationState == "0"):#check notifcation state && check date with birthday 
         #yag=yagmail.SMTP()
         bDayList = []
@@ -21,3 +14,12 @@ def sendEmail():
             bDayList.append(item)
         bDayList.insert(0,text)
         yagmail.SMTP(Email).send(Email,'Birthday Reminder',bDayList)
+
+def sendEmail():
+    notificationState = getNotificationState()
+    Email = getEmail()
+    #today = getSystemDate()
+    birthdayPeopleList = []
+    birthdayPeopleList = getBirthdayPeople()
+    
+    checkBirthday(Email,birthdayPeopleList,notificationState)

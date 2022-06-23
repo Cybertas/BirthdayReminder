@@ -1,6 +1,7 @@
 import os
 import smtplib
 import sys
+import threading 
 from email.message import EmailMessage
 
 from fetchDates import *
@@ -9,6 +10,11 @@ from notificationStatus import *
 from sendEmail import *
 from sendEmailPrep import *
 from UserPref import * 
+
+def checkDatesBackgroundProcess():
+    backGroundCheckBirthday = threading.Timer(3600.0, sendEmail())
+    backGroundCheckBirthday.start()
+
 
 #main 
 if __name__ == '__main__':
@@ -40,9 +46,8 @@ if __name__ == '__main__':
             setReminderDay()
         if(inp=='5'):
             sys.exit()
-        if(inp=='6'):#this is to test
+        if(inp=='6'):
             sendEmail()
-        #sendEmail()
 
         
 
